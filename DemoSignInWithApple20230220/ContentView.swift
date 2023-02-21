@@ -14,7 +14,7 @@ struct ContentView: View {
             Image(systemName: "apple.logo")
                 .imageScale(.large)
                 .foregroundColor(.primary)
-            Text("Hello, Apple Pay!")
+            Text("Hello, Sign in with Apple!")
                 .bold()
             //Sign in with apple button
             SignInWithAppleButton(.signIn) { request in
