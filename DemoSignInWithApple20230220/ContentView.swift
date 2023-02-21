@@ -29,7 +29,8 @@ struct ContentView: View {
                     //Handle auth failures
                 }
             }
-            .frame(width: 280, height: 40, alignment: .center)            .signInWithAppleButtonStyle(.black)
+            .frame(width: 280, height: 40, alignment: .center)
+            .signInWithAppleButtonStyle(.black)
             
             Spacer()
                 .frame(height: 20)
