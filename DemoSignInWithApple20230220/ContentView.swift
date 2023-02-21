@@ -6,14 +6,30 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName: "apple.logo")
                 .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+                .foregroundColor(.primary)
+            Text("Hello, Apple Pay!")
+                .bold()
+            //Sign in with apple button
+            SignInWithAppleButton(.signIn) { request in
+                request.requestedScopes = [.fullName, .email]
+            } onCompletion: { result in
+                switch result {
+                case .success(let authResult):
+                    print("Auth success. Result: \(authResult)")
+                    //Post-authentication updates on persistence and/or states.
+                case .failure(let error):
+                    print("Auth failed. Result: \(error.localizedDescription)")
+                    //Handle auth failures
+                }
+            }
+            .frame(width: 280, height: 40, alignment: .center)
         }
         .padding()
     }
